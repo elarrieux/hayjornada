@@ -235,6 +235,12 @@
 
     <script>
         function checkWeather() {
+
+            getRainProbabilitySaturdayMorning()
+                .then(result => {
+                    console.log("Saturday Morning Rain Probability:");
+                    console.log(result.saturdayMorningRainProbability);
+                });
             const loading = document.getElementById('loading');
             const result = document.getElementById('result');
             const icon = document.getElementById('icon');
@@ -277,6 +283,67 @@
                 loading.style.display = 'none';
                 result.style.display = 'block';
             }, 1200);
+        }
+
+        async function getRainProbabilitySaturdayMorning() {
+            const montevideo = {
+                latitude: -34.9011,
+                longitude: -56.1645
+            };
+
+            const url = new URL("https://api.open-meteo.com/v1/forecast ");
+            url.searchParams.append("latitude", montevideo.latitude);
+            url.searchParams.append("longitude", montevideo.longitude);
+            url.searchParams.append("hourly", "precipitation_probability");
+            url.searchParams.append("forecast_days", "16");
+            url.searchParams.append("timezone", "auto"); // Get timezone offset
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                const hourlyTime = data.hourly.time;
+                const precipitationProb = data.hourly.precipitation_probability;
+                const tzOffset = data.utc_offset_seconds / 3600; // Convert seconds to hours
+
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                // Find next Saturday
+                const nextSaturday = new Date(today);
+                nextSaturday.setDate(today.getDate() + (6 - today.getDay() + 7) % 7);
+                nextSaturday.setHours(0, 0, 0, 0); // Midnight of next Saturday
+
+                let totalProb = 0;
+                let count = 0;
+
+                for (let i = 0; i < hourlyTime.length; i++) {
+                    const utcDate = new Date(hourlyTime[i]);
+                    const localDate = new Date(utcDate.getTime() + tzOffset * 60 * 60 * 1000); // Apply timezone offset
+
+                    const localDateStr = localDate.toISOString().split('T')[0];
+                    const localHour = localDate.getHours();
+
+                    const saturdayStr = nextSaturday.toISOString().split('T')[0];
+
+                    if (localDateStr === saturdayStr && localHour >= 6 && localHour <= 11) {
+                        totalProb += precipitationProb[i];
+                        count++;
+                    }
+                }
+
+                const avgMorningRain = count > 0 ? (totalProb / count).toFixed(1) : null;
+
+                return {
+                    saturdayMorningRainProbability: avgMorningRain !== null
+                        ? `${avgMorningRain}%`
+                        : "No data available for Saturday morning"
+                };
+
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+                return { error: "Failed to retrieve data" };
+            }
         }
 
         // Initial check
