@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content=" if weekend sports activities will happen in Carrasco Norte, Montevideo, Uruguay based on current weather conditions." />
+    <meta name="keywords"
+        content="sports activities Montevideo, Carrasco Norte weather, weekend sports Uruguay, school sports Uruguay, parent group sports" />
+    <meta name="author" content="School Parents Group - Carrasco Norte, Montevideo" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook Meta -->
+    <meta property="og:title" content="Hay Jornada? - Carrasco Norte, Montevideo, Uruguay" />
+    <meta property="og:description"
+        content="Averigua si las condiciones climaticas estan dadas para que haya jornada deportiva este fin de semana en Carrasco Norte." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hayjornada.uy " />
+    <meta property="og:image" content="https://placehold.co/600x400?text=Carrasco+Norte+Sports+Checker " />
+
+    <title>Hay Jornada?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Orbitron :wght@500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        :root {
+            --primary: #ff6ec7;
+            --secondary: #78ffd6;
+            --accent-green: #77dd77;
+            --accent-red: #ff6961;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Fredoka One', cursive;
+            background: linear-gradient(-45deg, var(--primary), var(--secondary), #fbd784, #f77062);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--text-dark);
+            transition: background 0.5s ease;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.03);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .status-icon {
+            font-size: 5rem;
+            margin: 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .yes {
+            color: var(--accent-green);
+            background: radial-gradient(circle at 30% 30%, #ccffcc, #aaffaa);
+            box-shadow: 0 10px 20px rgba(122, 181, 122, 0.3);
+        }
+
+        .no {
+            color: var(--accent-red);
+            background: radial-gradient(circle at 30% 30%, #ffcccc, #ffaaaa);
+            box-shadow: 0 10px 20px rgba(255, 105, 97, 0.3);
+        }
+
+        .message {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        button {
+            background: linear-gradient(to right, #ff6ec7, #f77062);
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem 1.6rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .loading-dots div {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 4px;
+            background-color: var(--text-dark);
+            border-radius: 50%;
+            animation: bounce 1s infinite ease-in-out both;
+        }
+
+        .loading-dots div:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loading-dots div:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: rgba(44, 62, 80, 0.7);
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .status-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="app">
+        <h1>Hay Jornada?</h1>
+
+        <div id="loading">
+            <p class="mb-4">Chequeando el estado del tiempo en Carrasco Norte...</p>
+            <div class="loading-dots">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div id="result" style="display:none;">
+            <div id="icon" class="status-icon"></div>
+            <p id="decision" class="text-xl font-bold mb-2"></p>
+            <p id="message" class="message"></p>
+            <button onclick="checkWeather()">Chequear clima</button>
+        </div>
+
+        <footer class="mt-8">
+            Carrasco Norte, Montevideo, Uruguay
+        </footer>
+    </div>
+
+    <script>
+        function checkWeather() {
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
+            const icon = document.getElementById('icon');
+            const decisionText = document.getElementById('decision');
+            const message = document.getElementById('message');
+
+            // Show loading state
+            result.style.display = 'none';
+            loading.style.display = 'block';
+
+            // Simulate API delay
+            setTimeout(() => {
+                const rainChance = Math.floor(Math.random() * 100); // 0 to 99%
+
+                //const willHappen = rainChance < 20;
+                // TODO: Replace with actual API call to check weather
+                const willHappen = false;
+                // Set UI based on result
+                icon.className = 'status-icon'; // reset classes
+                if (willHappen) {
+                    icon.classList.add('yes');
+                    icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>`;
+                    decisionText.textContent = 'Si!';
+                    message.textContent = 'Hay jornada este fin de semana 🎉';
+                } else {
+                    icon.classList.add('no');
+                    icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>`;
+                    decisionText.textContent = 'No!';
+                    message.textContent = 'Actividades suspendidas por lluvia 🌧️';
+                }
+
+                // Show result, hide loading
+                loading.style.display = 'none';
+                result.style.display = 'block';
+            }, 1200);
+        }
+
+        // Initial check
+        window.onload = checkWeather;
+    </script>
+</body>
+
+</html>
