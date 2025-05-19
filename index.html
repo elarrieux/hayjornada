@@ -1,354 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Averigua si las condiciones climaticas estan dadas para que haya jornada deportiva este fin de semana en Carrasco Norte." />
-    <meta name="keywords"
-        content="jornada deportiva colegios fin de semana hockey futbol handball rugby Montevideo, Carrasco Norte, Uruguay" />
+    <meta
+      name="description"
+      content="Averigua si las condiciones climaticas estan dadas para que haya jornada deportiva este fin de semana en Carrasco Norte."
+    />
+    <meta
+      name="keywords"
+      content="jornada deportiva colegios fin de semana hockey futbol handball rugby Montevideo, Carrasco Norte, Uruguay"
+    />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook Meta -->
-    <meta property="og:title" content="Hay Jornada? - Carrasco Norte, Montevideo, Uruguay" />
-    <meta property="og:description"
-        content="Averigua si las condiciones climaticas estan dadas para que haya jornada deportiva este fin de semana en Carrasco Norte." />
+    <meta
+      property="og:title"
+      content="Hay Jornada? - Carrasco Norte, Montevideo, Uruguay"
+    />
+    <meta
+      property="og:description"
+      content="Averigua si las condiciones climaticas estan dadas para que haya jornada deportiva este fin de semana en Carrasco Norte."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hayjornada.uy" />
-    <meta property="og:image" content="https://hayjornada.uy/android-chrome-192x192.png" />
+    <meta
+      property="og:image"
+      content="https://hayjornada.uy/android-chrome-192x192.png"
+    />
 
     <title>Hay Jornada?</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Orbitron :wght@500&display=swap"
-        rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Orbitron :wght@500&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
     <style>
-        :root {
-            --primary: #ff6ec7;
-            --secondary: #78ffd6;
-            --accent-green: #77dd77;
-            --accent-red: #ff6961;
-            --text-dark: #2c3e50;
-            --text-light: #ffffff;
+      :root {
+        --primary: #ff6ec7;
+        --secondary: #78ffd6;
+        --accent-green: #77dd77;
+        --accent-red: #ff6961;
+        --text-dark: #2c3e50;
+        --text-light: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Fredoka One", cursive;
+        background: linear-gradient(
+          -45deg,
+          var(--primary),
+          var(--secondary),
+          #fbd784,
+          #f77062
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        color: var(--text-dark);
+        transition: background 0.5s ease;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
         }
 
-        * {
-            box-sizing: border-box;
+        50% {
+          background-position: 100% 50%;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Fredoka One', cursive;
-            background: linear-gradient(-45deg, var(--primary), var(--secondary), #fbd784, #f77062);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            color: var(--text-dark);
-            transition: background 0.5s ease;
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        border-radius: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease;
+      }
+
+      .container:hover {
+        transform: scale(1.03);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .status-icon {
+        font-size: 5rem;
+        margin: 1rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .yes {
+        color: var(--accent-green);
+        background: radial-gradient(circle at 30% 30%, #ccffcc, #aaffaa);
+        box-shadow: 0 10px 20px rgba(122, 181, 122, 0.3);
+      }
+
+      .no {
+        color: var(--accent-red);
+        background: radial-gradient(circle at 30% 30%, #ffcccc, #ffaaaa);
+        box-shadow: 0 10px 20px rgba(255, 105, 97, 0.3);
+      }
+
+      .message {
+        /*font-family: 'Orbitron', sans-serif;*/
+        font-size: 1.1rem;
+        color: var(--text-dark);
+        margin-bottom: 2rem;
+        line-height: 1.5;
+      }
+
+      button {
+        background: linear-gradient(to right, #ff6ec7, #f77062);
+        color: var(--text-light);
+        border: none;
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+        font-family: inherit;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      button:hover {
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .loading-dots div {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 4px;
+        background-color: var(--text-dark);
+        border-radius: 50%;
+        animation: bounce 1s infinite ease-in-out both;
+      }
+
+      .loading-dots div:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+
+      .loading-dots div:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
         }
 
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        40% {
+          transform: scale(1);
         }
+      }
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
-        }
+      footer {
+        margin-top: 2rem;
+        font-size: 0.75rem;
+        color: rgba(44, 62, 80, 0.7);
+        letter-spacing: 0.5px;
+      }
 
-        .container:hover {
-            transform: scale(1.03);
-        }
-
+      /* Responsive */
+      @media (max-width: 500px) {
         h1 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
+          font-size: 2rem;
         }
 
         .status-icon {
-            font-size: 5rem;
-            margin: 1rem auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .yes {
-            color: var(--accent-green);
-            background: radial-gradient(circle at 30% 30%, #ccffcc, #aaffaa);
-            box-shadow: 0 10px 20px rgba(122, 181, 122, 0.3);
-        }
-
-        .no {
-            color: var(--accent-red);
-            background: radial-gradient(circle at 30% 30%, #ffcccc, #ffaaaa);
-            box-shadow: 0 10px 20px rgba(255, 105, 97, 0.3);
-        }
-
-        .message {
-            /*font-family: 'Orbitron', sans-serif;*/
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            line-height: 1.5;
+          width: 80px;
+          height: 80px;
         }
 
         button {
-            background: linear-gradient(to right, #ff6ec7, #f77062);
-            color: var(--text-light);
-            border: none;
-            padding: 0.8rem 1.6rem;
-            font-size: 1rem;
-            font-family: inherit;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          font-size: 0.9rem;
+          padding: 0.6rem 1.2rem;
         }
+      }
 
-        button:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .loading-dots div {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin: 0 4px;
-            background-color: var(--text-dark);
-            border-radius: 50%;
-            animation: bounce 1s infinite ease-in-out both;
-        }
-
-        .loading-dots div:nth-child(1) {
-            animation-delay: -0.32s;
-        }
-
-        .loading-dots div:nth-child(2) {
-            animation-delay: -0.16s;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            80%,
-            100% {
-                transform: scale(0);
-            }
-
-            40% {
-                transform: scale(1);
-            }
-        }
-
-        footer {
-            margin-top: 2rem;
-            font-size: 0.75rem;
-            color: rgba(44, 62, 80, 0.7);
-            letter-spacing: 0.5px;
-        }
-
-        /* Responsive */
-        @media (max-width: 500px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .status-icon {
-                width: 80px;
-                height: 80px;
-            }
-
-            button {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
-            }
-        }
+      .countdown {
+        font-size: 2rem;
+        color: #333;
+      }
     </style>
-</head>
+    <script src="https://unpkg.com/alpinejs@3.x/dist/cdn.min.js" defer></script>
+  </head>
 
-<body>
-
+  <body>
     <div class="container" id="app">
-        <h1>Hay Jornada?</h1>
+      <h1>Hay Jornada?</h1>
 
-        <div id="loading">
-            <p class="mb-4">Chequeando el estado del tiempo en Carrasco Norte...</p>
-            <div class="loading-dots">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+      <div x-data="countdown()" class="countdown">
+        <div x-text="formattedTime"></div>
+      </div>
+
+      <!-- <div id="loading">
+        <p class="mb-4">Chequeando el estado del tiempo en Carrasco Norte...</p>
+        <div class="loading-dots">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+      </div>
 
-        <div id="result" style="display:none;">
-            <div id="icon" class="status-icon"></div>
-            <p id="decision" class="text-xl font-bold mb-2"></p>
-            <p id="message" class="message"></p>
-            <button onclick="checkWeather()">Chequear clima</button>
-        </div>
+      <div id="result" style="display: none">
+        <div id="icon" class="status-icon"></div>
+        <p id="decision" class="text-xl font-bold mb-2"></p>
+        <p id="message" class="message"></p>
+        <button onclick="checkWeather()">Chequear clima</button>
+      </div> -->
 
-        <footer class="mt-8">
-            Carrasco Norte, Montevideo, Uruguay
-        </footer>
+      <footer class="mt-8">Carrasco Norte, Montevideo, Uruguay</footer>
     </div>
 
     <script>
-        function checkWeather() {
+      function checkWeather() {
+        getRainProbabilitySaturdayMorning().then((result) => {
+          console.log("Saturday Morning Rain Probability:");
+          console.log(result.saturdayMorningRainProbability);
+        });
+        const loading = document.getElementById("loading");
+        const result = document.getElementById("result");
+        const icon = document.getElementById("icon");
+        const decisionText = document.getElementById("decision");
+        const message = document.getElementById("message");
 
-            getRainProbabilitySaturdayMorning()
-                .then(result => {
-                    console.log("Saturday Morning Rain Probability:");
-                    console.log(result.saturdayMorningRainProbability);
-                });
-            const loading = document.getElementById('loading');
-            const result = document.getElementById('result');
-            const icon = document.getElementById('icon');
-            const decisionText = document.getElementById('decision');
-            const message = document.getElementById('message');
+        // Show loading state
+        result.style.display = "none";
+        loading.style.display = "block";
 
-            // Show loading state
-            result.style.display = 'none';
-            loading.style.display = 'block';
+        // Simulate API delay
+        setTimeout(() => {
+          const rainChance = Math.floor(Math.random() * 100); // 0 to 99%
 
-            // Simulate API delay
-            setTimeout(() => {
-                const rainChance = Math.floor(Math.random() * 100); // 0 to 99%
-
-                //const willHappen = rainChance < 20;
-                // TODO: Replace with actual API call to check weather
-                const willHappen = false;
-                // Set UI based on result
-                icon.className = 'status-icon'; // reset classes
-                if (willHappen) {
-                    icon.classList.add('yes');
-                    icon.innerHTML = `
+          //const willHappen = rainChance < 20;
+          // TODO: Replace with actual API call to check weather
+          const willHappen = false;
+          // Set UI based on result
+          icon.className = "status-icon"; // reset classes
+          if (willHappen) {
+            icon.classList.add("yes");
+            icon.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>`;
-                    decisionText.textContent = 'Si!';
-                    message.textContent = 'Hay jornada este fin de semana 🎉';
-                } else {
-                    icon.classList.add('no');
-                    icon.innerHTML = `
+            decisionText.textContent = "Si!";
+            message.textContent = "Hay jornada este fin de semana 🎉";
+          } else {
+            icon.classList.add("no");
+            icon.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>`;
-                    decisionText.textContent = 'No!';
-                    message.textContent = '🌧️ Actividades suspendidas por lluvia 🌧️';
-                }
+            decisionText.textContent = "No!";
+            message.textContent = "🌧️ Actividades suspendidas por lluvia 🌧️";
+          }
 
-                // Show result, hide loading
-                loading.style.display = 'none';
-                result.style.display = 'block';
-            }, 1200);
-        }
+          // Show result, hide loading
+          loading.style.display = "none";
+          result.style.display = "block";
+        }, 1200);
+      }
 
-        async function getRainProbabilitySaturdayMorning() {
-            const montevideo = {
-                latitude: -34.9011,
-                longitude: -56.1645
-            };
+      async function getRainProbabilitySaturdayMorning() {
+        const montevideo = {
+          latitude: -34.9011,
+          longitude: -56.1645,
+        };
 
-            const url = new URL("https://api.open-meteo.com/v1/forecast ");
-            url.searchParams.append("latitude", montevideo.latitude);
-            url.searchParams.append("longitude", montevideo.longitude);
-            url.searchParams.append("hourly", "precipitation_probability");
-            url.searchParams.append("forecast_days", "16");
-            url.searchParams.append("timezone", "auto"); // Get timezone offset
+        const url = new URL("https://api.open-meteo.com/v1/forecast ");
+        url.searchParams.append("latitude", montevideo.latitude);
+        url.searchParams.append("longitude", montevideo.longitude);
+        url.searchParams.append("hourly", "precipitation_probability");
+        url.searchParams.append("forecast_days", "16");
+        url.searchParams.append("timezone", "auto"); // Get timezone offset
 
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
 
-                const hourlyTime = data.hourly.time;
-                const precipitationProb = data.hourly.precipitation_probability;
-                const tzOffset = data.utc_offset_seconds / 3600; // Convert seconds to hours
+          const hourlyTime = data.hourly.time;
+          const precipitationProb = data.hourly.precipitation_probability;
+          const tzOffset = data.utc_offset_seconds / 3600; // Convert seconds to hours
 
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
 
-                // Find next Saturday
-                const nextSaturday = new Date(today);
-                nextSaturday.setDate(today.getDate() + (6 - today.getDay() + 7) % 7);
-                nextSaturday.setHours(0, 0, 0, 0); // Midnight of next Saturday
+          // Find next Saturday
+          const nextSaturday = new Date(today);
+          nextSaturday.setDate(
+            today.getDate() + ((6 - today.getDay() + 7) % 7)
+          );
+          nextSaturday.setHours(0, 0, 0, 0); // Midnight of next Saturday
 
-                let totalProb = 0;
-                let count = 0;
+          let totalProb = 0;
+          let count = 0;
 
-                for (let i = 0; i < hourlyTime.length; i++) {
-                    const utcDate = new Date(hourlyTime[i]);
-                    const localDate = new Date(utcDate.getTime() + tzOffset * 60 * 60 * 1000); // Apply timezone offset
+          for (let i = 0; i < hourlyTime.length; i++) {
+            const utcDate = new Date(hourlyTime[i]);
+            const localDate = new Date(
+              utcDate.getTime() + tzOffset * 60 * 60 * 1000
+            ); // Apply timezone offset
 
-                    const localDateStr = localDate.toISOString().split('T')[0];
-                    const localHour = localDate.getHours();
+            const localDateStr = localDate.toISOString().split("T")[0];
+            const localHour = localDate.getHours();
 
-                    const saturdayStr = nextSaturday.toISOString().split('T')[0];
+            const saturdayStr = nextSaturday.toISOString().split("T")[0];
 
-                    if (localDateStr === saturdayStr && localHour >= 6 && localHour <= 11) {
-                        totalProb += precipitationProb[i];
-                        count++;
-                    }
-                }
-
-                const avgMorningRain = count > 0 ? (totalProb / count).toFixed(1) : null;
-
-                return {
-                    saturdayMorningRainProbability: avgMorningRain !== null
-                        ? `${avgMorningRain}%`
-                        : "No data available for Saturday morning"
-                };
-
-            } catch (error) {
-                console.error("Error fetching weather data:", error);
-                return { error: "Failed to retrieve data" };
+            if (
+              localDateStr === saturdayStr &&
+              localHour >= 6 &&
+              localHour <= 11
+            ) {
+              totalProb += precipitationProb[i];
+              count++;
             }
+          }
+
+          const avgMorningRain =
+            count > 0 ? (totalProb / count).toFixed(1) : null;
+
+          return {
+            saturdayMorningRainProbability:
+              avgMorningRain !== null
+                ? `${avgMorningRain}%`
+                : "No data available for Saturday morning",
+          };
+        } catch (error) {
+          console.error("Error fetching weather data:", error);
+          return { error: "Failed to retrieve data" };
+        }
+      }
+
+      function countdown() {
+        const now = new Date();
+
+        // Get current day in UYT (UTC-3)
+        const nowUTC = new Date(now.toUTCString());
+        const nowUYT = new Date(nowUTC.getTime() - 3 * 60 * 60 * 1000);
+
+        // Find next Saturday (0 = Sunday, ..., 6 = Saturday)
+        const today = nowUYT.getDay();
+        let daysUntilSaturday = (6 - today + 7) % 7 || 7;
+
+        if (today === 6 && nowUYT.getHours() >= 9) {
+          // If it's Saturday and past 9am, go to next week
+          daysUntilSaturday = 7;
         }
 
-        // Initial check
-        window.onload = checkWeather;
-    </script>
-</body>
+        // Set target date to next Saturday at 9:00 AM UYT
+        const targetUYT = new Date(nowUYT);
+        targetUYT.setDate(targetUYT.getDate() + daysUntilSaturday);
+        targetUYT.setHours(9, 0, 0, 0);
 
+        // Convert target back to UTC
+        const targetUTC = new Date(targetUYT.getTime() + 3 * 60 * 60 * 1000);
+
+        return {
+          targetTime: targetUTC,
+          formattedTime: "",
+
+          init() {
+            this.updateCountdown();
+            setInterval(() => {
+              this.updateCountdown();
+            }, 1000);
+          },
+
+          updateCountdown() {
+            const now = new Date();
+            const diff = Math.floor((this.targetTime - now) / 1000);
+
+            if (diff <= 0) {
+              this.formattedTime = "It's Saturday at 9:00 AM UYT!";
+              return;
+            }
+
+            const days = Math.floor(diff / (60 * 60 * 24));
+            const hours = Math.floor((diff / (60 * 60)) % 24);
+            const minutes = Math.floor((diff / 60) % 60);
+            const seconds = diff % 60;
+
+            this.formattedTime = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+          },
+        };
+      }
+
+      // Initial check
+      window.onload = checkWeather;
+    </script>
+  </body>
 </html>
