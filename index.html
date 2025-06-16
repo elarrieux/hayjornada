@@ -235,11 +235,11 @@
     <div class="container" id="app">
       <h1>Hay Jornada?</h1>
 
-<!--       <div x-data="countdown()" class="countdown">
+       <div x-data="countdown()" class="countdown">
         <div x-text="formattedTime"></div>
-      </div> -->
+      </div>
 
-      <div id="loading">
+<!--       <div id="loading">
         <p class="mb-4">Chequeando el estado del tiempo en Carrasco Norte...</p>
         <div class="loading-dots">
           <div></div>
@@ -253,7 +253,7 @@
         <p id="decision" class="text-xl font-bold mb-2"></p>
         <p id="message" class="message"></p>
         <button onclick="checkWeather()">Chequear clima</button>
-      </div>
+      </div> -->
 
       <footer class="mt-8">Carrasco Norte, Montevideo, Uruguay</footer>
     </div>
@@ -389,15 +389,15 @@
         const today = nowUYT.getDay();
         let daysUntilSaturday = (6 - today + 7) % 7 || 7;
 
-        if (today === 6 && nowUYT.getHours() >= 9) {
-          // If it's Saturday and past 9am, go to next week
+        if (today === 6 && nowUYT.getHours() >= 8) {
+          // If it's Saturday and past 8am, go to next week
           daysUntilSaturday = 7;
         }
 
-        // Set target date to next Saturday at 9:00 AM UYT
+        // Set target date to next Saturday at 8:00 AM UYT
         const targetUYT = new Date(nowUYT);
         targetUYT.setDate(targetUYT.getDate() + daysUntilSaturday);
-        targetUYT.setHours(9, 0, 0, 0);
+        targetUYT.setHours(8, 0, 0, 0);
 
         // Convert target back to UTC
         const targetUTC = new Date(targetUYT.getTime() + 3 * 60 * 60 * 1000);
@@ -418,7 +418,7 @@
             const diff = Math.floor((this.targetTime - now) / 1000);
 
             if (diff <= 0) {
-              this.formattedTime = "It's Saturday at 9:00 AM UYT!";
+              this.formattedTime = "It's Saturday at 8:00 AM UYT!";
               return;
             }
 
